@@ -1,0 +1,20 @@
+\documentclass{article}
+
+\begin{document}
+\subsection{Disorder is a friend of scaling}
+
+\subsection{Streaming through RAM}
+\begin{itemize}
+\item Instead of reading and writing a single item at a time, batch things up
+\item When input buffer consumed, read another chunk. When out buffer fills, write to output using f(x) in the middle
+\item We can simply partition the input and parallelize
+\end{itemize}
+
+\subsection{Rendezvous}
+\begin{itemize}
+\item Streaming one chunk at a time is easy, but some algorithms need certain items to be co-resident in memory (not guaranteed to appear in the same input chunk)
+\item \textbf{Time-space rendezvous}: in the same place (RAM) at the same time - most of computing is about this
+\item Divide and Conquer: you have B chunks, use 1 for read into and one for write into, leaving B-2 chinks of RAM left as space for rendezvous
+\end{itemize}
+
+\end{document}
