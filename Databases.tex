@@ -1,7 +1,7 @@
 \documentclass{article}
 
 \begin{document}
-\subsection{Disorder is a friend of scaling}
+\section{Disorder is a friend of scaling}
 
 \subsection{Streaming through RAM}
 \begin{itemize}
@@ -16,5 +16,46 @@
 \item \textbf{Time-space rendezvous}: in the same place (RAM) at the same time - most of computing is about this
 \item Divide and Conquer: you have B chunks, use 1 for read into and one for write into, leaving B-2 chinks of RAM left as space for rendezvous
 \end{itemize}
+
+\section{SQL}
+The standard for database queries - has been around since the 70s and remains the top language
+\subsection{Pros and Cons}
+\textbf{Pros}: SQL is a declarative language and is widely implemented (varying levels of efficiency and completeness). It is also general-purpose and feature-rich (many years of added features, extensible: callouts to other languages, data sources) \\ 
+\textbf{Cons}: Constained (Core SQL is not a Turing-complete language - extensions make it Turing complete) 
+
+\subsection{Relation Terminology}
+\begin{itemize}
+\item Database: set of relations
+\item Relation (Table): Schema (description, schema of database is set of schema of its relations), Instance (data satisfying the schema)
+\item Attribute (Column)
+\item Tuple (Record, Row)
+\item Schema is fixed, set up in the beginning. Attribute names, atomic types. Populated with data that changes over time
+\item Instance can change: a multi-set of rows. Tables are unordered and there can be repeats
+\item DDL: Data Definition Langue is where you declare hat you want your tables to be and look like.
+\item DML: Data Manipulation language is where you say what info you actually want in the table
+\item RDBMS is responsible for efficient evaluation
+\end{itemize}
+Foreign Key (sid) References Sailors: this means that the sid will be tied to the sid in the Sailors table - you can't put something in the new table that didn't exist in the other table
+
+\subsection{Single Relation Queries}
+DISTINCT means remove duplicates
+SELECT [DISTINCT] what you want \\
+FROM table  \\
+WHERE condition \\
+GROUP BY column list\\ 
+HAVING predicate \\
+ORDER BY  column list\\
+\\
+Aggregates compute a summary of some arithmetic expression and produce one row of output \\
+Group by partitions the table into seperate areas and produce aggregate result per group - cardinality of output is the number of distinct group values \\ 
+Having predicate is applied after grouping and aggregation - hence can contain anything that could go in the SELECT list - only used in aggregate queries \\ \\ 
+\textbf{Order}: FROM comes first - gives us the table. Then we look at the table data and stream it through the WHERE clause. In the SELECT clause we see which columns we actually care about. Then we do GROUP BY and create buckets and collect tuples for each bucket. Then we look at the HAVING clause and throw out any bucket that doesn't satisfy. Then we eliminate duplicates if DISTINCT is on and then we do that AGGREGATE 
+
+\subsection{Querying Multiple Relations - Join Queries}
+FROM Sailors S, Reserves R - we have multiple tables in this clause \\ 
+WHERE S.sid = R.sid - otherwise we get nonsense \\ \\
+Range Variabels: needed when ambiguity could arise - same table used multiple times in FROM \\ 
+Where S.name LIKE 'P(underscor)p(percent sign)' means name starts with a P then some stuff then a lower case p \\ 
+EXCEPT can remove sailors who have reserved a boat - removing some group - also eliminates duplicates
 
 \end{document}
