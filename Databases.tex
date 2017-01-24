@@ -58,4 +58,40 @@ Range Variabels: needed when ambiguity could arise - same table used multiple ti
 Where S.name LIKE 'P(underscor)p(percent sign)' means name starts with a P then some stuff then a lower case p \\ 
 EXCEPT can remove sailors who have reserved a boat - removing some group - also eliminates duplicates
 
+\subsection{Nested Queries}
+WHERE S.sid IN \\ 
+For each S.sid check if it is in the nested table (can also do NOT IN) \\  \\
+WHERE EXISTS (subtable) - subtable will include WHERE S.sid = R.sid \\ \\ 
+WHERE S.rating > ANY - where the rating is bigger than some selected rating value in the subtable
+
+\subsection{NULL Values}
+Field values that are sometimes unknown or inapplicable - SQL provides a special value null for such situations \\ 
+In a truth table - ? or True = True, ? and True = ?, etc. - these are unknown values
+
+\subsection{Inner Join and Outer Join}
+FROM Sailors S \\ INNER JOIN Reserves r \\ ON s.sid = r.sid \\
+ON is called the join condition \\ \\
+FROM Sailors S \\ LEFT OUTER JOIN Reserves r \\ ON s.sid = r.sid \\
+We return all the matching rows, plus all unmatched rows from the table on the left of the join clause - use nulls in fields of non-matching tuples \\
+Full Outer Join will use nulls to fill in blanks from both tables
+
+\subsection{Views: Named Queries}
+CREATE VIEW viewName \\ AS selectStatement \\ 
+Views make development simpler, used for security, not "materialized" (you just store the select statement - you don't store the actual table) \\  \\
+GRANT privileges ON object TO users \\ 
+Object can be a Table or a view, Privileges talk about operations allowed on those table - Select, insert, delete, reference (create foreign key that references specified columns), all - can later be revoked
+
+\subsection{Subqeiers in FROM}
+Akin to a view \\ 
+FROM Boads2 b, \\
+(SELECT b.bid, COUNT(*) \\
+FROM ... WHERE ...) AS Reds(Bid, scount) \\ 
+Now you can refer to Reds later - this is a view created on the fly
+
+\subsection{Constrains}
+\textbf{Integrity Constrains}: conditions that every legal instance of a relation must satisfy (similar to assertions in other languages) \\
+Inserts/deletes/updates that violate IC's are disallowed - can ensure application semantics (sid is a key) or prevent inconsistensies (sname must be a string) \\ \\
+\textbf{Domain Constrians}: field values must be of the right type (always enforced) \\ \\
+\textbf{Primary Key and Foreign Key Constraints}: keys are way to associate tuples in different relations - one form of ICn. A foreign key is when a key references a table where it isn't the primary key (sid primary key in students table but foreign key in classes table)
+\textbf{Superkey}: no two distinct tuples can have the same value in all key fields
 \end{document}
