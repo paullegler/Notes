@@ -92,6 +92,48 @@ Now you can refer to Reds later - this is a view created on the fly
 \textbf{Integrity Constrains}: conditions that every legal instance of a relation must satisfy (similar to assertions in other languages) \\
 Inserts/deletes/updates that violate IC's are disallowed - can ensure application semantics (sid is a key) or prevent inconsistensies (sname must be a string) \\ \\
 \textbf{Domain Constrians}: field values must be of the right type (always enforced) \\ \\
-\textbf{Primary Key and Foreign Key Constraints}: keys are way to associate tuples in different relations - one form of ICn. A foreign key is when a key references a table where it isn't the primary key (sid primary key in students table but foreign key in classes table)
-\textbf{Superkey}: no two distinct tuples can have the same value in all key fields
+\textbf{Primary Key and Foreign Key Constraints}: keys are way to associate tuples in different relations - one form of ICn. A foreign key is when a key references a table where it isn't the primary key (sid primary key in students table but foreign key in classes table) \\ 
+FOREIGN KEY (sid) REFERENCES Students - can use to prevent not inserting a student ID that doesn't actually correspond to a student \\
+Cascading delete means that the delete propagates to the tables which refer to the original table \\
+\textbf{Superkey}: no two distinct tuples can have the same value in all key fields \\
+\textbf{General Constaint}: Check (rating between one AND ten) - they can be more complicated and actually be select from where queries
+
+\section{Disks and Files}
+\subsection{Database Management System (DBMS) Architecture}
+First you do query parsing and check validity. Then optimization turns this query into something that can actually be handled by the system. This takes us to a relational operators which access something lower down - the files and index management. The layer belwo this is the buffer management which plays the role of essentially virtual memory. Below this level is the disk/flash drive - each layer abstracts the layer below, allowing us to manage complexity and make performance instructions
+\subsection{Disk Space and Buffer Management}
+Going back and forth between disk and ram: program operates on data that is actually in memory - there is some interface with the disk that puts this world together and this is the buffer pool or buffer manager - manages a relatively small amount of pages of memory that deal directly with disk. \\  \\ 
+How are tables stored on disk? - usually stored as a logical file of some sort that can be broken up into pages, where each page contains a collection of records. \\ 
+\textbf{Pages} are managed in memory, by the buffer manager - higher levels of database only operate in memory and on disk by the disk space manager which reads and writes pages to physical disk/files
+\subsection{Storage Media}
+A lot of databases still use magnetic disks - a mechanical anachronism - API exists to actually deal with physical memory when you read and write - these API calls are expensive \\
+Economics: RAM is much more expensive than Magnetic disk, which is also more expensive than solid state disk \\ 
+Storage Hierarchy: Registers, on-chip cache (very fast, small), on-board cache (slower, larger), RAM (currently used data), SSD (varies by deployment - sometimes database/cache) , Disk (database and backups/logs)
+\subsection{Components of a Disk}
+Platters spin (maybe 15000 rpm) - Arm assembly moved in or out to position a head on a desired track - each platter made up of tracks which are concentric rings \\ 
+Only one head reads/writes at a time - block/page size is a multiple of fixed sector size \\ \\ 
+Key to lower cost is reducing seek and rotational delays \\ 
+\textbf{Seek time}: how long it takes to ove the arm to position disk head on track \\ 
+\textbf{Rotational delay}: how long it takes for the block to rotate under head \\ 
+\textbf{Transfer time}: actually moving data to/from disk surface \\ 
+\subsection{Flash (SSD)}
+The cost of flash has come down dramatically recently - the current generation of flash devices have differences between reads and writes (small reads, big writes) - flash also gets worn out over time - tries to wear level and spread things out so one area isn't overused \\ 
+Write amplication: big units, so to even write something small you still have to write a lot \\ 
+Random reads are fast and predictable with no seek penalty - sequential reads also perform similarly (unlike hard drive). But writes are slower for random than sequential writes.
+\subsection{Storage Pragmatics and Trends}
+Many significant DBs are not that big - but data sizes grow faster than Moore's Law - minimize seek and rotational delay because we are faced with hard disks. The role of flash and RAM has increased recently
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}

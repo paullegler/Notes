@@ -1,6 +1,9 @@
 \documentclass{article}
 
 \begin{document}
+
+\tableofcontents
+
 \section{What is an Operating System?}
 A search query goes to a DNS server, then goes through the Internet to its address. Along the way, a load balancer that uses algorithms to manage many machines that give partial responses that are put back together and sent back. Every single device involved in this process has an operating system. \\ 
 \textbf{Operating System}: special layer of software that provides application software access to hardware resources. These resources include processors, screen, etc. An application may want to access many of these resources - you must provide some level of abstraction to application developers. The OS "visualizes the hardware." The OS does the following:
@@ -50,12 +53,36 @@ Threads encapsulate concurrency ("active" component) and address space encapsula
 Multiplexing in time the memory is too slow. \\
 To multiplex in space you must avoid processes overwriting each others memory - you must define regions of memory beginning with a base address and ending at a bound address (Base and Bound - B and B). This requires relocating the loader and still protects OS and isolates program - no addition on address path (fast) \\ \\ 
 This kind of translation is difficult, so we visualize the address - each program sees the same address space - but in the physical memory on the machine they are not all in the same place - you translate the addresses on the fly (\textbf{Virtual Address}) - the program still can't touch the OS
-
-
-
-
-
-
+\subsection{3 types of Mode Transfer}
+How the OS gives control to a Process: Base and Bound change to that of the yellow process, but when the OS needs to get back the control you must keep track of where to return to (RTU - Return From User). The uPC (user program counter) becomes the next address to be executed in the process. Sysmode changes from 1 to 0 (restrict access of the program to privileged instructions)
+\begin{itemize}
+\item Syscall: process requires a system service e.g. exit. This is like a function call but outside the process - doesn't have the address of the system function to call
+\item Interrupt: external asynchronous event triggers context switch - often I/O - independent of user process
+\item Trap or Exception: internal synchronous event in process triggers context switch - protection violation like segfault/divide by 0
+\end{itemize}
+\textbf{Interrupt Vector}: for each interrupt you have a number, and you have a vector of interrupts with addresses of code to execute to handle that given interrupt. \\ \\
+When we return from a process (if say another process interrupts it), we use the RTU and store necessary data for the process in the Static data. The PC contains InterruptVector[i] corresponding to the interrupting process. Then you restart the method for the next process by setting the base, bound, uPC, and regs \\ \\
+\textbf{Fragmentation}: Kernel has to fit processes into contiguous memory blocks but there are random empty chunks from finished processes \\
+\textbf{Sharing}: Very hard to share between processes or process and kernel \\ \\
+One potential solution is to use multiple segments for code, static data, heap, and stack. But this still doesn't allow for enough sharing. \\ 
+\textbf{Virtual Address Translation}: Pages of fixed sizes fit very nicely into physical memory and each process has four sections mapped to real memory somewhere such that everything first nicely next to each other with standard page size
+\subsection{Process Control Block}
+Kernel represents each process as a PCB - status, register state, process ID, user, priority, execution time, memory space. \\
+\textbf{Kernel Scheduler}: keeps track of the PCBs \\
+\textbf{Scheduler}: mechanism for deciding which processes/threads to receive the CPU - different policies can use fairness or realtime guarantees or latency optimization etc. \\ \\
+The kernel and the processes must have separate stacks, as it needs its own stack and safe space to work \\ 
+\textbf{Kernel System Call Handler}: vector though well-defined syscall entry points - locate arguments from user stack to kernel, copy arguments into kernel memory, validate arguments and copy results back into user memory
+\subsection{Interrupt Control}
+Interrupt processing not visible to user process - occurs between instructions - no change to process state (save state). You can observe the impact of the interrupt by things slowing down. If you 'disable' the interrupts it will run until completion and they are re-enabled upon completion. \textbf{Non-Maskable-Interrupt}: can't ignore these, like segfaults \\ 
+\textbf{Interrupt Controller} chooses interrupt request to honor, masks enables/disables interrupts, priority encoder picks highest enabled interrupt. The CPU can disable interrupts. \\
+Taking interrupts safely: there is an interrupt vector. Kernel handles interrupt regardless of state of user code - the handler is non-blocking - atomic transfer of control (nothing can mess the process up in the middle) - transparent restartable execution
+\section{Fork}
+Unique identity of process is the process ID (PID). Fork() system call creates a copy of current process with a new PID - parent and child process. \\
+Return value from Fork(): integer greater than 0 in original (parent) process, 0 when in new child process, less than 0 means error \\ \\
+Other UNIX commands: \\
+\textbf{exec}: change the program being run by the current process \\ 
+\textbf{wait}: the parent uses to wait for the child to finish \\ 
+\textbf{signal}: send notification to another process
 
 
 

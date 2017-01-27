@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  24 JAN 2017 15:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  26 JAN 2017 15:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -38,66 +38,73 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 11.
+
+(./Anthro.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 2.
+
+Overfull \hbox (1.25063pt too wide) in paragraph at lines 27--27
+ [][] []\OT1/cmr/m/n/10 Cultural Pt-terns and Norms Cre-ate Bod-ily Forms - Cul
+-ture Makes 
+ []
+
+)
+\tf@toc=\write3
+\openout3 = `Anthro.toc'.
+
+ [1
+
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 16.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 11.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 16.
 
-Underfull \hbox (badness 10000) in paragraph at lines 15--18
-
- []
-
-[1
-
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 34--37
+Underfull \hbox (badness 10000) in paragraph at lines 20--23
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 60--63
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 60--63
+Underfull \hbox (badness 10000) in paragraph at lines 39--42
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 80--82
+Underfull \hbox (badness 10000) in paragraph at lines 65--68
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--68
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 84--86
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--90
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 92--96
+Underfull \hbox (badness 10000) in paragraph at lines 85--87
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 98--101
+Underfull \hbox (badness 10000) in paragraph at lines 89--91
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--101
+Underfull \hbox (badness 10000) in paragraph at lines 93--95
 
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 97--101
+
+ []
+
+[6]
 Underfull \hbox (badness 10000) in paragraph at lines 103--106
 
  []
@@ -107,24 +114,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--106
 
  []
 
-[6] [7] (./Anthro.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--111
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--111
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 130--133
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 165--171
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 173--177
+
+ []
+
+[10] (./Anthro.aux) ) 
 Here is how much of TeX's memory you used:
- 227 strings out of 493014
- 2561 string characters out of 6133351
- 58601 words of memory out of 5000000
- 3850 multiletter control sequences out of 15000+600000
+ 232 strings out of 493014
+ 2615 string characters out of 6133351
+ 59601 words of memory out of 5000000
+ 3852 multiletter control sequences out of 15000+600000
  5158 words of font info for 19 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  23i,4n,19p,597b,146s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb>
-Output written on Anthro.pdf (7 pages, 82946 bytes).
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb>
+Output written on Anthro.pdf (10 pages, 90947 bytes).
 PDF statistics:
- 44 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
+ 53 PDF objects out of 1000 (max. 8388607)
+ 36 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
