@@ -76,7 +76,7 @@ The kernel and the processes must have separate stacks, as it needs its own stac
 Interrupt processing not visible to user process - occurs between instructions - no change to process state (save state). You can observe the impact of the interrupt by things slowing down. If you 'disable' the interrupts it will run until completion and they are re-enabled upon completion. \textbf{Non-Maskable-Interrupt}: can't ignore these, like segfaults \\ 
 \textbf{Interrupt Controller} chooses interrupt request to honor, masks enables/disables interrupts, priority encoder picks highest enabled interrupt. The CPU can disable interrupts. \\
 Taking interrupts safely: there is an interrupt vector. Kernel handles interrupt regardless of state of user code - the handler is non-blocking - atomic transfer of control (nothing can mess the process up in the middle) - transparent restartable execution
-\section{Fork}
+\subsection{Fork}
 Unique identity of process is the process ID (PID). Fork() system call creates a copy of current process with a new PID - parent and child process. \\
 Return value from Fork(): integer greater than 0 in original (parent) process, 0 when in new child process, less than 0 means error \\ \\
 Other UNIX commands: \\
@@ -84,15 +84,33 @@ Other UNIX commands: \\
 \textbf{wait}: the parent uses to wait for the child to finish \\ 
 \textbf{signal}: send notification to another process
 
+\subsection{System Call Interface}
+One type is read: \\
+count = read(fd, buffer, nbytes) \\
+First thing you do is put the arguments on the stack (3rd then 2nd then 1st), then the read system call number into a register then a trap to give control to OS \\ 
+\textbf{Trap} is a synchronous interrupt to give control to the kernel \\
+When the OS gets control it uses the syscall number, looks at the corresponding syscall handler table index and gets the syscall handler code, after this you Return to caller and go back to user space
 
-
-
-
-
-
-
-
-
+\section{Key Unix I/O Design Concepts}
+\textbf{Uniformity}: open, read/write, close - file operations, device I/O, and interprocess communication happen this way which allows simple composition of programs 
+\begin{itemize}
+\item Open provides opportunity for access control and arbitration as well as sets up underlying machinery (data structures) 
+\item Byte-oriented: even if blocks are transferred, addressing is in bytes
+\item Kernel buffered reads and writes- streaming and block devices look the same - read blocks process, yielding processor to other task and completion of out-going transfer decoupled from the application, allowing it to continue - flush writes all buffered information
+\end{itemize}
+\subsection{The File System Abstraction}
+File: named collection of data in a file system - the data can be text/binary/linearized objections as well as metadata \\ 
+Directory: Folder containing files and directories with hierarchal naming \\
+Steams: sequence of bytes, whether text or data \\
+\subsection{Low Level I/O}
+open, create and close operate on file descriptors - an index to a data structure that contains all of the file information \\
+Permissions are User Group Other separated by | like R|W|X (vertical lines)
+\subsection{SYSCALL}
+Low level lib parameters are set in registers \\
+\textbf{Internal OS File Descriptors}: internal data structure describing everything about the file
+\subsection{Device Driver}
+Implemented in the kernel: the code that interfaces with the device - programs the device and receives interrupts from the device  \\ 
+They are typically divided into two halfs - the first provides common API to OS and the bottom half gets the interrupts from the devices 
 
 
 

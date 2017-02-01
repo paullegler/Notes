@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  26 JAN 2017 17:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  31 JAN 2017 17:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -81,32 +81,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--42
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--52
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--52
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--52
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--52
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--52
-
- []
-
 [3]
+Underfull \hbox (badness 10000) in paragraph at lines 43--52
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--52
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--52
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--52
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--52
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 53--56
 
  []
@@ -142,7 +142,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 80--86
 
  []
 
-[6] (./OS.aux) ) 
+[6]
+Overfull \hbox (19.75067pt too wide) in paragraph at lines 102--105
+\OT1/cmr/m/n/10 File: named col-lec-tion of data in a file sys-tem - the data c
+an be text/binary/linearized
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--105
+
+ []
+
+[7] (./OS.aux) ) 
 Here is how much of TeX's memory you used:
  232 strings out of 493014
  2571 string characters out of 6133351
@@ -156,10 +167,10 @@ Here is how much of TeX's memory you used:
 cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmsy10.pfb>
-Output written on OS.pdf (6 pages, 79475 bytes).
+Output written on OS.pdf (7 pages, 83733 bytes).
 PDF statistics:
- 39 PDF objects out of 1000 (max. 8388607)
- 26 compressed objects within 1 object stream
+ 44 PDF objects out of 1000 (max. 8388607)
+ 30 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

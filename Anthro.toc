@@ -29,3 +29,7 @@
 \contentsline {subsection}{\numberline {8.1}My initial comments from reading}{9}
 \contentsline {subsection}{\numberline {8.2}Background}{10}
 \contentsline {subsection}{\numberline {8.3}Habitus}{10}
+\contentsline {section}{\numberline {9}W.E.B. Du Bois, The Souls of Black Folk}{10}
+\contentsline {subsection}{\numberline {9.1}My initial comments from reading}{10}
+\contentsline {subsection}{\numberline {9.2}Comments from section}{10}
+\contentsline {subsection}{\numberline {9.3}Double Consciousness}{11}
