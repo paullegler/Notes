@@ -110,12 +110,26 @@ Low level lib parameters are set in registers \\
 \textbf{Internal OS File Descriptors}: internal data structure describing everything about the file
 \subsection{Device Driver}
 Implemented in the kernel: the code that interfaces with the device - programs the device and receives interrupts from the device  \\ 
-They are typically divided into two halfs - the first provides common API to OS and the bottom half gets the interrupts from the devices 
-
-
-
-
-
+They are typically divided into two halfs - the first provides common API to OS and the bottom half gets the interrupts from the devices \\
+\section{Communication Between Processes}
+Client issues write request and then waits while the server performs the read operation and then services the request.
+\subsection{Client-Server Model}
+Servers can have multiple clients (e.g. Webserver) \\
+\textbf{Socket}: an abstraction of a network I/O queue - mechanism for inter-process communication that embodies one side of a communication channel - over any kind of network \\
+File systems provide a collection of permanent objects in a structured name space (independent of process) \\
+Sockets provide a means for processes to communicate (transfer data) to other processes \\ \\
+On the server side, create a new socket for every request, bind to TCP, listen and accept (when you accept you create a new socket - sereer connection socket) \\
+On the client side, create socket, bind to TCP, connect on socket \\
+Connection has five things: source and destination, two port numbers, and protocol type 
+\subsection{Namespaces for Communication Over IP}
+Just an IP address for the machine isn't enough - we must specify each process from one another - this is where port numbers come in - always 80 for web
+\subsection{Multiplexing}
+The current state of process held in a PCB - the CPU decides what time to different processes and OS protects processes from each other \\
+\textbf{Context Switch}: when the CPU switches form one process to another - can be non-trivial. \\
+There are queues for each state of process (read queue, I/O queue) - PCBs switch between queues as they change state \\
+\subsection{Threads}
+\textbf{Multithreading}: a single program made up of a number of different concurring activities - done because its easy to program and save less state \\
+Code, heap, global variables shared - registers and stack not shared 
 \end{document}
 
 

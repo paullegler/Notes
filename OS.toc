@@ -7,15 +7,20 @@
 \contentsline {section}{\numberline {2}Four Fundamental OS Concepts}{3}
 \contentsline {subsection}{\numberline {2.1}Thread}{3}
 \contentsline {subsection}{\numberline {2.2}Address Space with Translation}{3}
-\contentsline {subsection}{\numberline {2.3}Process}{3}
+\contentsline {subsection}{\numberline {2.3}Process}{4}
 \contentsline {subsection}{\numberline {2.4}Dual Mode Operation/Protection}{4}
-\contentsline {subsection}{\numberline {2.5}Multiplexing in Space the Memory}{4}
+\contentsline {subsection}{\numberline {2.5}Multiplexing in Space the Memory}{5}
 \contentsline {subsection}{\numberline {2.6}3 types of Mode Transfer}{5}
-\contentsline {subsection}{\numberline {2.7}Process Control Block}{5}
+\contentsline {subsection}{\numberline {2.7}Process Control Block}{6}
 \contentsline {subsection}{\numberline {2.8}Interrupt Control}{6}
 \contentsline {subsection}{\numberline {2.9}Fork}{6}
-\contentsline {subsection}{\numberline {2.10}System Call Interface}{6}
+\contentsline {subsection}{\numberline {2.10}System Call Interface}{7}
 \contentsline {section}{\numberline {3}Key Unix I/O Design Concepts}{7}
 \contentsline {subsection}{\numberline {3.1}The File System Abstraction}{7}
 \contentsline {subsection}{\numberline {3.2}Low Level I/O}{7}
 \contentsline {subsection}{\numberline {3.3}SYSCALL}{7}
+\contentsline {subsection}{\numberline {3.4}Device Driver}{8}
+\contentsline {section}{\numberline {4}Communication Between Processes}{8}
+\contentsline {subsection}{\numberline {4.1}Client-Server Model}{8}
+\contentsline {subsection}{\numberline {4.2}Namespaces for Communication Over IP}{8}
+\contentsline {subsection}{\numberline {4.3}Multiplexing}{8}

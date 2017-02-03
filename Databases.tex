@@ -123,10 +123,46 @@ Random reads are fast and predictable with no seek penalty - sequential reads al
 \subsection{Storage Pragmatics and Trends}
 Many significant DBs are not that big - but data sizes grow faster than Moore's Law - minimize seek and rotational delay because we are faced with hard disks. The role of flash and RAM has increased recently
 
-
-
-
-
+\section{File Storage}
+R = the number of records on a page \\
+B = the number of data blocks/pages \\
+D = average time to read/write disk block
+\subsection{Sorted Files}
+Files are sorted according to search key \\
+Scan All Records: BD \\
+Find Specific Key: $\log_2(B)$ in worst case and avg case \\
+Find keys between two values (in a range): $(\log_2(B) + range_len)D$ \\
+Insert: $(\log_2(B) + B)D$\\
+Delete: $(\log_2(B) + B)D$
+\subsection{Heap Files}
+Inserts always append to the end \\ 
+Scan All Records: BD \\
+Find Specific Key: $\frac{BD}{2}$ \\
+Find keys between two values (in a range): BD\\
+Insert: 2D \\
+Delete: $(\frac{B}{2} + 1)D$
+\subsection{Indexes Overview}
+An index is a data structure that enables fast lookup of data entries by search key \\ 
+Search key: any subset of columns in the relation - doesn't have to be a key of the relation. \textbf{Composite Key} is more than one column \\
+Data Entries: items stored in the index \\ \\
+\textbf{How is data stored in the file?}
+\begin{itemize}
+\item By value: actual data record with key value k
+\item By reference: $<$ k, rid of matching data record $>$
+\item By list of references: $<$ k, list of rids matching data records $>$
+\end{itemize}
+\textbf{Clustered}: index data entries stored in approximately order by value of search keys in data records - a file can be clustered on at most one search key - more expensive to maintain/update \\
+The Fan out is F - relatively large (like 1000) in practice F is 2 or 3 \\
+Scan All Records: 1.5 * (BD) \\
+Find Specific Key: $(\log_F(1.5 * B) + 1)D$ in worst case and avg case \\
+Find keys between two values (in a range): $(\log_F(1.5 * B) + range_len)D$ \\
+Insert: $(\log_F(1.5 * B) + 1)D$\\
+Delete: $(\log_F(1.5 * B) + 1)D$
+\subsection{Page Basic}
+Page header - number of records, free space \\
+Record length can be fixed or variable - if they are fixed you can pack records densely by appending each insert. If you delete in the middle - use bitmap and mark the deleted whole in the map. For variable length record - slot directory with the length and pointer of each record and a pointer that denotes free space
+\subsection{Record Formats}
+You can move the variable length fields to the end and use a record header
 
 
 
