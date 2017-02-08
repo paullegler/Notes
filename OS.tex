@@ -129,7 +129,11 @@ The current state of process held in a PCB - the CPU decides what time to differ
 There are queues for each state of process (read queue, I/O queue) - PCBs switch between queues as they change state \\
 \subsection{Threads}
 \textbf{Multithreading}: a single program made up of a number of different concurring activities - done because its easy to program and save less state \\
-Code, heap, global variables shared - registers and stack not shared 
+Code, heap, global variables shared - registers and stack not shared \\
+How to prevent stacks from writing on each other or on the heap??
+\subsection{ThreadFork}
+user level procedure that creates a new thread and places it on the ready queue - takes in pointer to routine, arguments, and size of stack - it initializes a TCB and Stack \\
+ThreadRoot is the root for the thread routine - creates and runs the thread - ThreadFinish() then wakes the sleeping threads
 \end{document}
 
 
