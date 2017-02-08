@@ -141,10 +141,11 @@ Find Specific Key: $\frac{BD}{2}$ \\
 Find keys between two values (in a range): BD\\
 Insert: 2D \\
 Delete: $(\frac{B}{2} + 1)D$
+\section{Indexes}
 \subsection{Indexes Overview}
 An index is a data structure that enables fast lookup of data entries by search key \\ 
-Search key: any subset of columns in the relation - doesn't have to be a key of the relation. \textbf{Composite Key} is more than one column \\
-Data Entries: items stored in the index \\ \\
+\textbf{Search key}: any subset of columns in the relation - doesn't have to be a key of the relation. \textbf{Composite Key} is more than one column \\
+\textbf{Data Entries}: items stored in the index - can be actual data or pointers \\ \\
 \textbf{How is data stored in the file?}
 \begin{itemize}
 \item By value: actual data record with key value k
@@ -163,7 +164,17 @@ Page header - number of records, free space \\
 Record length can be fixed or variable - if they are fixed you can pack records densely by appending each insert. If you delete in the middle - use bitmap and mark the deleted whole in the map. For variable length record - slot directory with the length and pointer of each record and a pointer that denotes free space
 \subsection{Record Formats}
 You can move the variable length fields to the end and use a record header
-
+\subsection{High fan-out search tree - ISAM}
+Binary search key file - only look at the first key in the page along with pointers to the page - if you need to break this up across pages do the same thing recursively and build another layer on top until there is only one page \\ 
+This means lookup is $\log_F$ - insert is also $\log_F$ for non overflow inserts and keeps a linked list for overflow pages \\
+Lots of insertions lead to more overflow pages which slows down ISAM \\ 
+Pros: sequentially means you can scan all records without touching index = good for static data with big scans \\
+Cons: doesn't handle insertion/deletions well and degrades to linear search
+\subsection{B+ Trees}
+There are pointers both ways at the leaf level from the greatest in entry i to the smallest in entry i + 1. \\
+\textbf{Occupancy invariant}: every node is at least half full (exception of root) - d is order of tree - each node has at least d entries and can hold max 2d entries - max fanout is 2d + 1 (+1 because 1 more pointer then entry possible) \\
+Data pages at bottom no longer in logical order - a tree can store $F^h * 2d$ records total
+\textbf{Inserts}: either simply insert into appropriate leaf in log time - or it's full you split the leaf in half and insert the new entry where it goes - you then copy the middle key along with a pointer to new page and put it in the level above
 
 
 

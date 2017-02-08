@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  31 JAN 2017 14:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  6 FEB 2017 09:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -140,16 +140,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 173--179
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 191--195
+Underfull \hbox (badness 10000) in paragraph at lines 192--194
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--195
+Underfull \hbox (badness 10000) in paragraph at lines 196--200
 
  []
 
-[11] (./Anthro.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--200
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--206
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 207--212
+
+ []
+
+[12] (./Anthro.aux) ) 
 Here is how much of TeX's memory you used:
  232 strings out of 493014
  2615 string characters out of 6133351
@@ -163,10 +178,10 @@ fonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmsy10.pfb>
-Output written on Anthro.pdf (11 pages, 94001 bytes).
+Output written on Anthro.pdf (12 pages, 96225 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
+ 59 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
