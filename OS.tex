@@ -134,6 +134,38 @@ How to prevent stacks from writing on each other or on the heap??
 \subsection{ThreadFork}
 user level procedure that creates a new thread and places it on the ready queue - takes in pointer to routine, arguments, and size of stack - it initializes a TCB and Stack \\
 ThreadRoot is the root for the thread routine - creates and runs the thread - ThreadFinish() then wakes the sleeping threads
+\subsection{Pintos}
+1 Thread per process only!
+\subsection{Pintos Interrupt Processing}
+Pushes interrupt number onto stack and then the general interrupt entry function \\
+Timer triggers thread switch then thread tick to update thread counters then thread yield to set current thread back to ready then scheduler
+\subsection{Reasons for Multithreading}
+Sharing resources, speedup, and modularity
+\subsection{Atomic Operations}
+If two threads read the account balance, then both add their amount sepasrately, one will be lost - we have to make the read add and store happen without being interrupted or having the value changed \\
+\textbf{Atomic Operations} run to completion or not at all = fundamental building block
+\subsection{Correctness Requirement}
+Threaded programs must work for all interleaving of thread instruction sequences
+\subsection{Definitions}
+\textbf{Synchronization}: using atomic operations to ensure cooperation between threads
+\textbf{Critical Section}: only one thread can execute at a time
+\textbf{Lock}: prevent someone from doing something
+\section{Locks, Semaphores, and Monitors}
+Where are we going with synchronization? In order to have high level API like locks and semaphores, we must have hardware support
+\subsection{Locks}
+Use when you want to prevent anyone else from executing the code you are executing - only one thread can acquire this lock at a time. Instead of busy waiting, you can go to sleep and be woken up at the correct time \\
+How do we build multi-instruction atomic operations - you don't want to be interrupted or yield - these interrupts could be internal or external, you want to avoid context switching. \\ \\
+The \textbf{naive implementation} will simply disable interrupts on lock acquire and enable them on lock release. But the critical section could be while(true)... \\ \\
+A better implementation is to pick a lock variable with a value that will denote FREE or BUSY and put threads on the waiting queue if value is BUSY when you acquire. When you release you set value to be FREE. Additionally disable interrupts during the actual critical section in acquire and release. \\ \\
+Before you put a thread to sleep, you must enable the interrupts - you want to do this atomically with going to sleep so we need hardware support  \\ \\
+\textbf{Atomic Instruction Sequences}: these instructions read a value and write a new value automatically - implemented in hardware
+\subsection{Semaphores}
+P() - wait for semaphore to become positive, then decrements \\ 
+V() - increments semaphore by 1, waking up a waiting P if any \\
+Use 1: mutual exlusion (same reason as using a lock) \\ 
+Use 2: scheduling constraints - wait thread to finish before threadjoin
+
 \end{document}
+
 
 

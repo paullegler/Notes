@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  7 FEB 2017 22:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  15 FEB 2017 22:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -48,6 +48,9 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write3
 \openout3 = `OS.toc'.
 
+ [1
+
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 11.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -55,9 +58,6 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 11.
 
-[1
-
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
@@ -77,16 +77,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--33
 
  []
 
-
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 40--42
 
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 43--52
-
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 43--52
 
@@ -108,11 +103,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 43--52
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--56
+Underfull \hbox (badness 10000) in paragraph at lines 43--52
 
  []
 
 [4]
+Underfull \hbox (badness 10000) in paragraph at lines 53--56
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 63--69
 
  []
@@ -154,39 +154,59 @@ Underfull \hbox (badness 10000) in paragraph at lines 102--105
 
  []
 
-
+[7]
 Underfull \hbox (badness 10000) in paragraph at lines 112--114
 
  []
 
-[7]
+
 Underfull \hbox (badness 10000) in paragraph at lines 117--124
 
  []
 
-
+[8]
 Underfull \hbox (badness 10000) in paragraph at lines 127--130
 
  []
 
-[8] [9] (./OS.aux) ) 
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 156--162
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--162
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--162
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--162
+
+ []
+
+[10] (./OS.aux) ) 
 Here is how much of TeX's memory you used:
  232 strings out of 493014
  2571 string characters out of 6133351
- 59601 words of memory out of 5000000
+ 61601 words of memory out of 5000000
  3852 multiletter control sequences out of 15000+600000
  5158 words of font info for 19 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 23i,4n,19p,522b,171s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb>
-Output written on OS.pdf (9 pages, 87542 bytes).
+ 23i,4n,19p,522b,144s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb>
+Output written on OS.pdf (10 pages, 91775 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 34 compressed objects within 1 object stream
+ 53 PDF objects out of 1000 (max. 8388607)
+ 36 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

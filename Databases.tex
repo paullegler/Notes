@@ -172,9 +172,57 @@ Pros: sequentially means you can scan all records without touching index = good 
 Cons: doesn't handle insertion/deletions well and degrades to linear search
 \subsection{B+ Trees}
 There are pointers both ways at the leaf level from the greatest in entry i to the smallest in entry i + 1. \\
-\textbf{Occupancy invariant}: every node is at least half full (exception of root) - d is order of tree - each node has at least d entries and can hold max 2d entries - max fanout is 2d + 1 (+1 because 1 more pointer then entry possible) \\
+\textbf{Occupancy invariant}: every node is at least half full (exception of root) - d is order of tree - each node has at least d entries and can hold max 2d entries - max fanout is 2d + 1 (+1 because 1 more pointer then entry possible) - not held for the right most branch in a B+ tree \\
 Data pages at bottom no longer in logical order - a tree can store $F^h * 2d$ records total
-\textbf{Inserts}: either simply insert into appropriate leaf in log time - or it's full you split the leaf in half and insert the new entry where it goes - you then copy the middle key along with a pointer to new page and put it in the level above
+\textbf{Inserts}: either simply insert into appropriate leaf in log time - or it's full you split the leaf L in half and insert the new entry where it goes - you then copy the middle key along with a pointer to new page and put it in the level above \\
+\textbf{Delete}: start at root - find leaf - delete - if it has d-1 (less than fill factor) then you re-distribute from sibling (adjacent node with same parent as L) - if this fails merge L and sibling \\
+\textbf{Fill factor} how full each node is - you want it higher for fewer insertions \\
+\textbf{Variable length keys and records}:we must redefine occupancy invariant - the page is half full measured in bytes
+\subsection{Prefix Compress Keys}: store the prefix to distinguish them from the next key - doesn't quite work so we must change to compressing starting from the leaf 
+\subsection{Suffix Key Compression}: all keys have common prefix and we make this prefix the header and use the suffixes in the actual page
+\section{Buffer Management}
+Data must be in RAM for DBMS to work on it and the buffer manager makes sure this is a similar process \\
+\textbf{Pinning}: prevent buffer manager from evicting page by pinning it if it's being currently used
+\subsection{When a Page is requested}
+The requester indicates whether page was modified via dirty bit and also must unpin the page when done using - different requestors can request the same page so a \textbf{pin count} is used  \\
+\subsection{Page Replacement Policy}
+LRU, Clock, MRU - right policy depends on access patterns \\
+\begin{itemize}
+\item Least Recently Used (LRU): keep track of last time frame was unpinned and replace the least recently unpinned - this can be costly because you must maintain heap data structure - very common, intuitive, simple - bad with repeated scans of big files (\textbf{sequential flooding})
+\item Clock Replacement Policy: keep frames in a logical cycle and have a reference bit that says and clock arm advances until we find the page to evict by skipping pinned pages or if reference bit is set - when you get a cache hit or insert a page you set its reference bit
+\item Most Recently Used (MRU): reverse of LRU - good for sequential scans
+\end{itemize}
+\textbf{Prefetching}: in the background prefetching the next needed pages in a sequential scan \\
+\textbf{Double Buffering}
+main thread funs on one pair of I/O buffs and 2nd I/O thread fills/drains unused I/O bufs. When the main thread is ready for a new buf, swap. \\
+\section{Sorting} 
+helps eliminate duplicates and summarize groups of items - additionally output sometimes must be ordered \\
+Given a file F, containing multiset of records R consuming N blocks of storage. We have two scratch disks (plenty of space), but we have a fixed amount of RAM equivalent to B blocks of disk (where $B << N$)\\
+We want to produce to files S and H where S is sorted and H is arranged so that no two records are
+\subsection{External Sorting: 2 way - a strawman} on pass 0 we read the page, sort it, and write - each page in sort order. In subsequent passes we merge the files 2 at a time recursively - the number of passes is $ceiling(log_2(N)) + 1$ - each pass we read and write each page in the file 2N since there are N pages in the file, so the total IO cost is $2Nceiling(log_2(N)) + 1$ \\
+If we have B blocks, we can use B-1 blocks in the merging process - $\frac{N}{B}$ sorted runs in pass 0, which means total cost is $2N(1 + log_{B-1}\frac{N}{B})$
+\subsection{Internal Sort} 
+tournament sort/ heap sort - we keep two heaps in memory H1 and H2. \\
+We read B-2 pages or rages, inserting into H1 - then we iterate over the heap until it is empty taking out m from H1 - we read in another record r and if $r<m$ we insert r into H1 else into H2\\
+Average length of a run is 2(B-2)
+\subsection{Hashing}
+We first do a streaming partition using a hash function $h_p$ to stream records to disk partitions \\
+\textbf{Two Phases}: first partition (divide) - then rehash by reading partitions into RAM hash table one at a time, using a different hash function $h_r$ to conquer \\
+How big of a table can we hash in two passes- B-1 partitions from pass 1 - each should be no more than B pages in size - so B(B-1) total. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
