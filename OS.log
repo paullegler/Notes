@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  15 FEB 2017 22:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  18 FEB 2017 14:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -189,7 +189,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--162
 
  []
 
-[10] (./OS.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--168
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--168
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 170--174
+
+ []
+
+[11] (./OS.aux) ) 
 Here is how much of TeX's memory you used:
  232 strings out of 493014
  2571 string characters out of 6133351
@@ -203,10 +218,10 @@ s/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmsy10.pfb>
-Output written on OS.pdf (10 pages, 91775 bytes).
+Output written on OS.pdf (11 pages, 92713 bytes).
 PDF statistics:
- 53 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
+ 56 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

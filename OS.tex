@@ -160,10 +160,26 @@ A better implementation is to pick a lock variable with a value that will denote
 Before you put a thread to sleep, you must enable the interrupts - you want to do this atomically with going to sleep so we need hardware support  \\ \\
 \textbf{Atomic Instruction Sequences}: these instructions read a value and write a new value automatically - implemented in hardware
 \subsection{Semaphores}
+Easier to program than locks, but they have weaknesses \\ \\
 P() - wait for semaphore to become positive, then decrements \\ 
-V() - increments semaphore by 1, waking up a waiting P if any \\
+V() - increments semaphore by 1, waking up a waiting P if any \\ \\
 Use 1: mutual exlusion (same reason as using a lock) \\ 
 Use 2: scheduling constraints - wait thread to finish before threadjoin
+
+\subsection{Monitors}
+They use locks for mutual exclusion and conditional variables for schedule constraints. \\
+Always acquire and release lock when dealing with the critical section/shared variable \\ \\
+\textbf{Hoare}: when you signal, you give up the lock and CPU to the other thread, then the other thread gives it back when it's done \\
+\textbf{Mesa}: when you signal, waiter is placed on the ready queue and the signaler keeps lock and CPU
+
+
+
+
+
+
+
+
+
 
 \end{document}
 

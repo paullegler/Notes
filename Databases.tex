@@ -209,7 +209,31 @@ Average length of a run is 2(B-2)
 We first do a streaming partition using a hash function $h_p$ to stream records to disk partitions \\
 \textbf{Two Phases}: first partition (divide) - then rehash by reading partitions into RAM hash table one at a time, using a different hash function $h_r$ to conquer \\
 How big of a table can we hash in two passes- B-1 partitions from pass 1 - each should be no more than B pages in size - so B(B-1) total. 
-
+\section{Relational Algebra}
+Uses relation calculus - $\in$, $\land$, etc. - there is exact equivalence between relational calculus and relational algebra \\
+Relational algebra has operators that take relations and produce more relations (\textbf{closed} - you can impose them together as the output is another relation) and \textbf{typed}, meaning input schema determines output \\ \\
+Aditionally it has set semantics, which means no duplicate tuples
+\subsection{Uniary Operators}
+Takes a single relation instance as input and produce one as output \begin{itemize}
+\item Projection ($\pi$): select a subset of columns (vertical) - corresponds to select clause
+\\
+$$\pi_{\textrm{sname, rating}}(S2)$$
+\item Selection ($\sigma$): select a subset of rows (horizontal) - corresponds to where clause
+$$\sigma_{\textrm{rating} > 8}(S2)$$
+\item Renaming ($\rho$): give a name to results or output of queries, returns of selection statements, and views of queries that we would like to view at some other point in time
+$$\rho(Temp1, 1\rightarrow sid1, 4 \rightarrow sid2, R1 x S1)$$
+The first argument is the output relation name and the last is the input relation. The middle argument renames individual columns
+\end{itemize}
+\subsection{Binary Operators}
+Takes pairs of relation instances as input and produce one as output
+\begin{itemize}
+\item Union ($\cup$): takes the union of two set - they must be compatible - corresponds to union clause
+\item Intersection ($\cap$): takes intersection - corresponds to intersect 
+\item Set difference (-): remove things from S2 from S1 if S1-S2 - corresponds to except
+\item Cross Product (x): each row of R1 paired with each row of S1 (R1 x S1) size is the size multiplied
+\item Joins (): compound operator (like intersection) 
+\end{itemize}
+\textbf{Monotone}: increasing the amount of inputs can only increase or keep the same the amount of outputs - union, intersect, etc. are but set difference is not
 
 
 

@@ -34,3 +34,5 @@
 \contentsline {subsection}{\numberline {4.11}Definitions}{10}
 \contentsline {section}{\numberline {5}Locks, Semaphores, and Monitors}{10}
 \contentsline {subsection}{\numberline {5.1}Locks}{10}
+\contentsline {subsection}{\numberline {5.2}Semaphores}{11}
+\contentsline {subsection}{\numberline {5.3}Monitors}{11}
