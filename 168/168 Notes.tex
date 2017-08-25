@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{enumerate}
+
+ 
+\begin{document}
+Lecture 1: August 24, 2017
+\begin{enumerate}
+\item What does he mean by the Internet? \\
+The core networking infrastructure that links al connected computing devices - not talking about applications built on top
+\item What does the Internet do? \\
+Delivers data between end points - done by chopping into packets and reconstructing
+\item What is this course about? \\
+Internet isn't just another network - it ties different networks together - "Inter" \\
+Internet goal is to connect many different networks across the world with the ability to tolerate failures \\ 
+\textbf{Architecture}: allocation of functionality and definition of interfaces among elements \\
+\textbf{Engineering}: how the tasks get done
+\item What Does the Internet Look Like? \\
+\textbf{End Systems}: send and receive packets \\
+\textbf{Switches/routers}: forward packets = routing decisions ensure packets reach destination \\
+\textbf{Links}: connect end systems to switches and switches to each other \\
+\textbf{Internet Service Providers (ISPs)} run their own networks (University, Verizon, Non-profit, etc.) \\
+\textbf{IPC}: set of mechanisms that all processes on same host to exchange data - Internet goal is to do this on two different hosts.
+\item Why study the Internet?
+\begin{itemize}
+\item The Internet is changing everything OMG
+\item Complex design - the Internet had to solve a system where competitors cooperate
+\item Massive scale: lots of users, machines, links, etc.
+\item Diversity and dynamic range - when designing must be prepared for different latency levels, amount of packet loss, technology, endpoint devices, applications, users
+\item \textbf{Asynchronous Operation}: fundamental constraint of the speed of light
+\item Prone to failure: many components leads to bad end to end reliability
+\item New design paradigm: went against phone network designers. Designers of Internet knew \textbf{dealing with failure is the key to scaling systems}
+\item Networking undergoing revolution: previously had been closed, stagnant, and feudal. There were slow moving standards dominated by Cisco. Recently, commodity hardware making inroads, rise of x86 forwarding, open source software starting to appear, better understanding of how to make networking look more like other systems
+\end{itemize}
+\item Why are networking courses so bad?
+\begin{itemize}
+\item Static Architecture: 40 years old, can't test new architectures in lab or testbed, so we will learn history not principal
+\item No intellectual Framework: Internet inventors had a brilliant paradigm but research community has failed to provide a general framework for understanding protocols
+\end{itemize}
+\item What is the course workload, grading, etc? \\
+3 projects, 6 practice problem sets, a midterm and a final
+\item Who am I and how do I teach? \\ 
+He's a vindictive son of a bitch
+\item What do I expect from you? \\
+Come to lecture
+\item Is CS168 the right class for you? \\
+Yes
+\end{enumerate}
+
+\end{document}
